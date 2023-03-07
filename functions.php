@@ -696,7 +696,7 @@ function my_admin_review_page_contents()
 
 						<tr>
 							
-							<th>Expert</th>
+							<th>Expert New</th>
 							<th>Rating</th>
 							<th>Review</th>
 							<th>Edit</th>

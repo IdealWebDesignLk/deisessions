@@ -545,7 +545,7 @@ function updateReview()
 		$reviewRating = $_POST["review_rating"];
 		$reviewText = $_POST["review_text"];
 		$reviewId = $_POST["review_id"];
-		$serviceId = $_POST["service_id"];
+		$expertId = $_POST["expert_id"];
 		$expertId = $_POST["user_id"];
 
 		if (isset($_POST['delete'])) {
@@ -568,7 +568,7 @@ function updateReview()
 
 				$wpdb->insert('review_details', array(
 					'user' => $expertId,
-					'service_id' => $serviceId,
+					'expert_id' => $expertId,
 					'review' => $reviewText,
 					'starreview' => $reviewRating,
 				));
@@ -697,8 +697,8 @@ function my_admin_review_page_contents()
 					<table id="reviewtable">
 
 						<tr>
-							<th>Service ID</th>
-							<th>Expert</th>
+							<th>Expert ID</th>
+							<th>User</th>
 							<th>Rating</th>
 							<th>Review</th>
 							<th>Edit</th>
@@ -720,7 +720,7 @@ function my_admin_review_page_contents()
 
 							<tr>
 								<input type="hidden" class="review_id" value="<?php echo $rowtags->review_id; ?>">
-								<td class="serviceid"><?php echo $rowtags->service_id; ?></td>
+								<td class="expertid"><?php echo $rowtags->expert_id; ?></td>
 								<td class="userid"><?php echo $rowtags->user; ?></td>
 								<td class="starrating"><?php echo $rowtags->starreview; ?></td>
 								<td class="review"><?php echo $rowtags->review; ?></td>
@@ -738,13 +738,13 @@ function my_admin_review_page_contents()
 						jQuery(document).ready(function() {
 							jQuery("#reviewtable").on('click', '.editreviewbtn', function() {
 								let self = jQuery(this).closest('tr');
-								let serviceid = self.find('.serviceid').text();
+								let expertid = self.find('.expertid').text();
 								let userid = self.find('.userid').text();
 								let startrating = self.find('.starrating').text();
 								let review = self.find('.review').text();
 								let reviewid = self.find('.review_id').val();
 
-								jQuery('#service_id').val(serviceid);
+								jQuery('#expert_id').val(expertid);
 								jQuery('#user_id').val(userid);
 								jQuery('#review_rating').val(startrating);
 								jQuery('#review_text').val(review);
@@ -757,8 +757,8 @@ function my_admin_review_page_contents()
 						<div class="editreview">
 							<div class="row">
 								<div class="col-md-4">
-									<label>Service ID</label>
-									<input name="service_id" id="service_id" type="text" value="">
+									<label>Expert ID</label>
+									<input name="expert_id" id="expert_id" type="text" value="">
 								</div>
 								<div class="col-md-4">
 									<label>Expert</label>

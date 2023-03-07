@@ -760,22 +760,26 @@ function my_admin_review_page_contents()
 
 									<?php
 									global $wpdb;
-									$expertname = "SELECT full_name FROM wp_821991_amelia_users";
+									//$expertname = "SELECT full_name FROM wp_821991_amelia_users";
 
 
 
-									
-									$result = $wpdb->get_results($expertname);
-									
-									// create a select element and options
+									$expertname = $wpdb->get_results(
+										$wpdb->prepare("SELECT full_name FROM wp_821991_amelia_users")
+									);
 							
-									while ($row = mysqli_fetch_assoc($result)) {
-									 
-									  echo '<datalist id="expert-list">
-											<option value="'.$row["full_name"].'">
+									if (count($expertname) > 0) {
+										foreach ($expertname as $row) {
+											echo '<datalist id="expert-list">
+											<option value="'.$row->full_name.'">
 										</datalist>';
-
+											$userserviceid = $row->full_name;
+											$userserviceprice = $row->price;
+											// echo $userserviceid."xx".$userserviceprice;
+										}
 									}
+							
+									
 							
 
 									?>

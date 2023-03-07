@@ -517,7 +517,7 @@ function getservicetags()
 {
 	if ($_SERVER["REQUEST_URI"] == '/get_service_tags') {
 		global $wpdb;
-		$tbprefix6 = $wpdb->prefix;
+		
 
 
 		$sql = "SELECT * FROM services_tags";
@@ -760,12 +760,13 @@ function my_admin_review_page_contents()
 
 									<?php
 									global $wpdb;
+									$tbprefix6 = $wpdb->prefix;
 									//$expertname = "SELECT full_name FROM wp_821991_amelia_users";
 
 
 
 									$expertname = $wpdb->get_results(
-										$wpdb->prepare("SELECT full_name FROM wp_821991_amelia_users")
+										$wpdb->prepare("SELECT full_name FROM ".$tbprefix6."amelia_users")
 									);
 							
 									if (count($expertname) > 0) {

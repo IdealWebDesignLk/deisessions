@@ -299,18 +299,19 @@ function my_custom_url_handler()
 		//echo 'position'.$position;
 		// 		echo $email;
 
-		$sql = "SELECT * FROM " . $tbprefix1 . "amelia_users WHERE email='$email'";
+		$sql = "SELECT * FROM wp_821991_amelia_users WHERE email='$email'";
 		$result = $wpdb->get_results($sql);
+		echo $sql;
 		echo count($result);
 		if (count($result) > 0) {
 
-			$wpdb->query($wpdb->prepare("UPDATE " . $tbprefix1 . "amelia_users SET full_name = CONCAT(firstName, ' ', lastName)  WHERE email='$email'"));
+			$wpdb->query($wpdb->prepare("UPDATE wp_821991_amelia_users SET full_name = CONCAT(firstName, ' ', lastName)  WHERE email='$email'"));
 
-			$wpdb->query($wpdb->prepare("UPDATE " . $tbprefix1 . "amelia_users SET trustedbrand1='" . $trustedbrand1 . "', trustedbrand2='" . $trustedbrand2 . "',  trustedbrand3='" . $trustedbrand3 . "', trustedbrand4='" . $trustedbrand4 . "', trustedbrand5='" . $trustedbrand5 . "', bio='" . $bio . "', position='" . $position . "' , language='" . $language . "' WHERE email='" . $email . "'"));
+			$wpdb->query($wpdb->prepare("UPDATE wp_821991_amelia_users SET trustedbrand1='" . $trustedbrand1 . "', trustedbrand2='" . $trustedbrand2 . "',  trustedbrand3='" . $trustedbrand3 . "', trustedbrand4='" . $trustedbrand4 . "', trustedbrand5='" . $trustedbrand5 . "', bio='" . $bio . "', position='" . $position . "' , language='" . $language . "' WHERE email='" . $email . "'"));
 			//echo $bio;
 			//echo $email;
 			$wpdb->update(
-				$tbprefix1 . 'amelia_users',
+				'wp_821991_amelia_users',
 				array(
 					'bio' => $bio,
 					'position' => $position,

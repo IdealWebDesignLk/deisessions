@@ -770,7 +770,7 @@ function my_admin_review_page_contents()
 
 					$usernames_list = implode(',', $usernames);
 
-					echo $usernames_list;
+					//echo $usernames_list;
 					$datalist_html = '<datalist id="usernames">';
 					$datalist_html .= '<option value="' . $usernames_list . '">';
 					$datalist_html .= '</datalist>';

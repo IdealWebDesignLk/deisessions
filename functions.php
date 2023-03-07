@@ -321,7 +321,7 @@ function my_custom_url_handler()
 			);
 			echo 'saved';
 		}
-		
+
 		exit();
 	}
 }
@@ -496,7 +496,7 @@ function duplicateService()
 
 			$wpdb->query(
 				$wpdb->prepare(
-					"INSERT INTO ".$tbprefix5."amelia_providers_to_services (userId, serviceId, price) VALUES (%d, %d, %f)",
+					"INSERT INTO " . $tbprefix5 . "amelia_providers_to_services (userId, serviceId, price) VALUES (%d, %d, %f)",
 					$userserviceid,
 					$latestserviceid,
 					$userserviceprice
@@ -695,7 +695,7 @@ function my_admin_review_page_contents()
 					<table id="reviewtable">
 
 						<tr>
-							
+
 							<th>Expert</th>
 							<th>Rating</th>
 							<th>Review</th>
@@ -718,7 +718,7 @@ function my_admin_review_page_contents()
 
 							<tr>
 								<input type="hidden" class="review_id" value="<?php echo $rowtags->review_id; ?>">
-								
+
 								<td class="userid"><?php echo $rowtags->user; ?></td>
 								<td class="starrating"><?php echo $rowtags->starreview; ?></td>
 								<td class="review"><?php echo $rowtags->review; ?></td>
@@ -736,7 +736,7 @@ function my_admin_review_page_contents()
 						jQuery(document).ready(function() {
 							jQuery("#reviewtable").on('click', '.editreviewbtn', function() {
 								let self = jQuery(this).closest('tr');
-								
+
 								let userid = self.find('.userid').text();
 								let startrating = self.find('.starrating').text();
 								let review = self.find('.review').text();
@@ -751,6 +751,30 @@ function my_admin_review_page_contents()
 							});
 						});
 					</script>
+
+					<?php
+					global $wpdb;
+
+					$usernames = array();
+
+
+					$sql = "SELECT full_name FROM wp_821991_amelia_users";
+					$result =  $wpdb->get_results($sql);
+
+					// Format the data for the datalist
+
+					while ($row = mysqli_fetch_array($result)) {
+						$usernames[] = $row['full_name'];
+					}
+
+					$usernames_list = implode(',', $usernames);
+
+					$datalist_html = '<datalist id="usernames">';
+					$datalist_html .= '<option value="' . $usernames_list . '">';
+					$datalist_html .= '</datalist>';
+
+
+					?>
 					<form action="/update_review" method="POST">
 						<div class="editreview">
 							<div class="row">
@@ -758,7 +782,7 @@ function my_admin_review_page_contents()
 								</div>
 								<div class="col-md-4">
 									<label>Expert</label>
-									<input name="user_id" id="user_id" type="text" value="">
+									<input name="user_id" id="user_id" type="text" value="" list="usernames">
 								</div>
 								<div class="col-md-4">
 									<label>Rating</label>
@@ -1088,10 +1112,9 @@ function wc_billing_field_strings($translated_text, $text, $domain)
 add_filter('gettext', 'wc_billing_field_strings', 20, 3);
 
 
-function custom_rewrite_rule() {
-   // add_rewrite_rule('^single-service/([^/]*)/?','index.php?page_id=28978&sid=$matches[1]','top');
-	add_rewrite_rule('^single-service/([^/]*)-([0-9]+)/?','index.php?page_id=28978&sid=$matches[2]','top');
+function custom_rewrite_rule()
+{
+	// add_rewrite_rule('^single-service/([^/]*)/?','index.php?page_id=28978&sid=$matches[1]','top');
+	add_rewrite_rule('^single-service/([^/]*)-([0-9]+)/?', 'index.php?page_id=28978&sid=$matches[2]', 'top');
 }
 add_action('init', 'custom_rewrite_rule', 10, 0);
-
-

@@ -16,7 +16,7 @@ get_header();
 
 
 <?php
-
+//new comment
 $finalHeroVidUrl = "";
 $server_name = "";
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')

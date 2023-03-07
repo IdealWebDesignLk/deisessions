@@ -17,6 +17,7 @@
 </style>
 <?php
 $serviceid = "7";
+
 $service = $wpdb->get_results("SELECT * FROM `wp_821991_amelia_services` where id='$serviceid'");
 
 

@@ -321,7 +321,7 @@ function my_custom_url_handler()
 			);
 			echo 'saved';
 		}
-		
+
 		exit();
 	}
 }
@@ -496,7 +496,7 @@ function duplicateService()
 
 			$wpdb->query(
 				$wpdb->prepare(
-					"INSERT INTO ".$tbprefix5."amelia_providers_to_services (userId, serviceId, price) VALUES (%d, %d, %f)",
+					"INSERT INTO " . $tbprefix5 . "amelia_providers_to_services (userId, serviceId, price) VALUES (%d, %d, %f)",
 					$userserviceid,
 					$latestserviceid,
 					$userserviceprice
@@ -695,7 +695,7 @@ function my_admin_review_page_contents()
 					<table id="reviewtable">
 
 						<tr>
-							
+
 							<th>Expert</th>
 							<th>Rating</th>
 							<th>Review</th>
@@ -718,7 +718,7 @@ function my_admin_review_page_contents()
 
 							<tr>
 								<input type="hidden" class="review_id" value="<?php echo $rowtags->review_id; ?>">
-								
+
 								<td class="userid"><?php echo $rowtags->user; ?></td>
 								<td class="starrating"><?php echo $rowtags->starreview; ?></td>
 								<td class="review"><?php echo $rowtags->review; ?></td>
@@ -736,7 +736,7 @@ function my_admin_review_page_contents()
 						jQuery(document).ready(function() {
 							jQuery("#reviewtable").on('click', '.editreviewbtn', function() {
 								let self = jQuery(this).closest('tr');
-								
+
 								let userid = self.find('.userid').text();
 								let startrating = self.find('.starrating').text();
 								let review = self.find('.review').text();
@@ -758,10 +758,28 @@ function my_admin_review_page_contents()
 								</div>
 								<div class="col-md-4">
 
-								<?php
-								echo '<datalist id="fruit-list"><option value="Apple"></datalist>';
-								?>
-								
+									<?php
+									global $wpdb;
+									$expertname = $wpdb->get_results("SELECT full_name FROM wp_821991_amelia_users");
+
+
+
+
+
+									foreach ($expertname as $exname) {
+									
+
+										echo '<datalist id="fruit-list">
+											<option value="'.$exname->full_name.'">
+										</datalist>';
+
+									
+
+									}
+
+
+									?>
+
 									<label>Expert</label>
 									<input name="user_id" id="user_id" type="text" value="" list="fruit-list">
 								</div>
@@ -1070,7 +1088,7 @@ function wpdocs_custom_login()
 		if (is_wp_error($user)) {
 
 			echo $user->get_error_message();
-			return false; 
+			return false;
 		} else {
 			wp_redirect('/wp-admin/admin.php?page=wpamelia-employees#/employees', 301);
 			exit;
@@ -1093,10 +1111,9 @@ function wc_billing_field_strings($translated_text, $text, $domain)
 add_filter('gettext', 'wc_billing_field_strings', 20, 3);
 
 
-function custom_rewrite_rule() {
-   // add_rewrite_rule('^single-service/([^/]*)/?','index.php?page_id=28978&sid=$matches[1]','top');
-	add_rewrite_rule('^single-service/([^/]*)-([0-9]+)/?','index.php?page_id=28978&sid=$matches[2]','top');
+function custom_rewrite_rule()
+{
+	// add_rewrite_rule('^single-service/([^/]*)/?','index.php?page_id=28978&sid=$matches[1]','top');
+	add_rewrite_rule('^single-service/([^/]*)-([0-9]+)/?', 'index.php?page_id=28978&sid=$matches[2]', 'top');
 }
 add_action('init', 'custom_rewrite_rule', 10, 0);
-
-

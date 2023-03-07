@@ -297,11 +297,11 @@ function my_custom_url_handler()
 
 
 		//echo 'position'.$position;
-		// 		echo $email;
+		 		echo $email;
 
 		$sql = "SELECT * FROM wp_821991_amelia_users WHERE email='$email'";
 		$result = $wpdb->get_results($sql);
-		echo $sql;
+		
 		echo count($result);
 		if (count($result) > 0) {
 

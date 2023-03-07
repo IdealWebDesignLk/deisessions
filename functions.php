@@ -696,7 +696,7 @@ function my_admin_review_page_contents()
 
 						<tr>
 							
-							<th>Expert New</th>
+							<th>Expert</th>
 							<th>Rating</th>
 							<th>Review</th>
 							<th>Edit</th>
@@ -758,7 +758,7 @@ function my_admin_review_page_contents()
 								</div>
 								<div class="col-md-4">
 									<label>Expert</label>
-									<input name="user_id" id="user_id" type="text" value="">
+									<input name="user_id" id="user_id" type="text" value="" list="<datalist id='usernames'><option value='french'>french</option></datalist>">
 								</div>
 								<div class="col-md-4">
 									<label>Rating</label>

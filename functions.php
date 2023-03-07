@@ -753,27 +753,27 @@ function my_admin_review_page_contents()
 					</script>
 
 					<?php
-					// global $wpdb;
+					global $wpdb;
 
-					// $usernames = array();
+					$usernames = array();
 
 
-					// $sql = "SELECT full_name FROM wp_821991_amelia_users";
-					// $result =  $wpdb->get_results($sql);
+					$sql = "SELECT full_name FROM wp_821991_amelia_users";
+					$result =  $wpdb->get_results($sql);
 
-					// // Format the data for the datalist
+					// Format the data for the datalist
 
-					// while ($row = mysqli_fetch_array($result)) {
-					// 	$usernames[] = $row['full_name'];
-					// }
+					while ($row = mysqli_fetch_array($result)) {
+						$usernames[] = $row['full_name'];
+					}
 					
 
-					// $usernames_list = implode(',', $usernames);
+					$usernames_list = implode(',', $usernames);
 
-					// //echo $usernames_list;
-					// $datalist_html = '<datalist id="usernames">';
-					// $datalist_html .= '<option value="' . $usernames_list . '">';
-					// $datalist_html .= '</datalist>';
+					//echo $usernames_list;
+					$datalist_html = '<datalist id="usernames">';
+					$datalist_html .= '<option value="' . $usernames_list . '">';
+					$datalist_html .= '</datalist>';
 
 
 					?>
@@ -783,7 +783,8 @@ function my_admin_review_page_contents()
 								<div class="col-md-4">
 								</div>
 								<div class="col-md-4">
-									<label>Expert</label>
+									<label>
+									</label>
 									<input name="user_id" id="user_id" type="text" value="">
 								</div>
 								<div class="col-md-4">

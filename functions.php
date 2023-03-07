@@ -764,19 +764,19 @@ function my_admin_review_page_contents()
 
 
 
-
-
-									foreach ($expertname as $exname) {
 									
-
-										echo '<datalist id="fruit-list">
-											<option value="'.$exname->full_name.'">
+									$result = $wpdb->get_results($expertname);
+									
+									// create a select element and options
+									echo "<select name='fruit'>";
+									while ($row = mysqli_fetch_assoc($result)) {
+									  echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
+									  echo '<datalist id="fruit-list">
+											<option value="'.$row["full_name"].'">
 										</datalist>';
 
-									
-
 									}
-
+							
 
 									?>
 

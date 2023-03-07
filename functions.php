@@ -766,6 +766,7 @@ function my_admin_review_page_contents()
 					while ($row = mysqli_fetch_array($result)) {
 						$usernames[] = $row['full_name'];
 					}
+					print_r($usernames[]) ;
 
 					$usernames_list = implode(',', $usernames);
 

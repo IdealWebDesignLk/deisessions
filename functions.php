@@ -757,8 +757,16 @@ function my_admin_review_page_contents()
 								<div class="col-md-4">
 								</div>
 								<div class="col-md-4">
+								<datalist id="fruit-list">
+  <option value="Apple">
+  <option value="Banana">
+  <option value="Cherry">
+  <option value="Durian">
+  <option value="Elderberry">
+  <option value="Fig">
+</datalist>
 									<label>Expert</label>
-									<input name="user_id" id="user_id" type="text" value="" list="<datalist id='usernames'><option value='french'>french</option></datalist>">
+									<input name="user_id" id="user_id" type="text" value="" list="fruit-list">
 								</div>
 								<div class="col-md-4">
 									<label>Rating</label>

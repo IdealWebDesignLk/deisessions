@@ -317,7 +317,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                                 <div class="col-md-4">
                                                     <img class="threeblurbimg" src="<?php echo $server_name . "/wp-content/uploads/2023/01/Group-11.png" ?>">
                                                     <h4>2. Check availability</h4>
-                                                    All IWD speakers have connected their calendar to our site. Check their availability throughout the IWD week.
+                                                    All DEI speakers have connected their calendar to our site. Check their availability throughout the DEI week.
                                                 </div>
                                                 <div class="col-md-4">
                                                     <img class="threeblurbimg" src="<?php echo $server_name . "/wp-content/uploads/2023/01/Group-12.png" ?>">
@@ -1284,14 +1284,14 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                 <div class="col-md-8">
                     <div class="container">
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <button class="accordion">What is IWD Sessions?</button>
+                            <button class="accordion">What is DEI Sessions?</button>
                             <div class="panel">
-                                <p>IWD Sessions is a platform where you can find your curated guest expert speakers for International Women's Day and the week in which this day falls (6-10 March). You can take an option on a specific time slot for 48 hrs or instantly book your session of choice.</p>
+                                <p>DEI Sessions is a platform where you can find your curated guest expert speakers for International Women's Day and the week in which this day falls (6-10 March). You can take an option on a specific time slot for 48 hrs or instantly book your session of choice.</p>
                             </div>
 
-                            <button class="accordion">Are the IWD sessions recorded?</button>
+                            <button class="accordion">Are the DEI sessions recorded?</button>
                             <div class="panel">
-                                <p>The IWD sessions cannot be recorded, unless you agree on this specifically with the expert speaker. </p>
+                                <p>The DEI sessions cannot be recorded, unless you agree on this specifically with the expert speaker. </p>
                             </div>
 
                             <button class="accordion">I am not sure yet I am able to make the booking, can I take an option on a specific timeslot?</button>
@@ -1299,9 +1299,9 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                 <p>Yes, in the booking process, you can choose to make a reservation for a specific session and timeslot. We will hold this timeslot for you for 48 hrs and will contact you as soon as possible after you have made the reservation.</p>
                             </div>
 
-                            <button class="accordion">Are IWD sessions online only?</button>
+                            <button class="accordion">Are DEI sessions online only?</button>
                             <div class="panel">
-                                <p>Yes, the IWD sessions are online only, and always live and interactive.</p>
+                                <p>Yes, the DEI sessions are online only, and always live and interactive.</p>
                             </div>
 
                             <button class="accordion">How do I make sure the expert speaker is informed about any specifics before the session (e.g. size and type of audience, context in which the session takes place)?</button>
@@ -1309,7 +1309,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                 <p>In the booking process (on the details page) you have the possibility to leave important information that will be shared with the expert speaker upon booking.</p>
                             </div>
 
-                            <button class="accordion">Is there a limit to the number of people attending a IWD session?</button>
+                            <button class="accordion">Is there a limit to the number of people attending a DEI session?</button>
                             <div class="panel">
                                 <p>In principle no, this is up to you. Two things to take into account: 1) the technical limitations of the video conferencing tool you use and 2) the level of interaction you desire for your audience. </p>
                             </div>

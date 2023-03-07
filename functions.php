@@ -769,14 +769,13 @@ function my_admin_review_page_contents()
 									);
 							
 									if (count($expertname) > 0) {
+										echo '<datalist id="expert-list">'
 										foreach ($expertname as $row) {
-											echo '<datalist id="expert-list">
-											<option value="'.$row->full_name.'">
-										</datalist>';
-											$userserviceid = $row->full_name;
-											$userserviceprice = $row->price;
-											// echo $userserviceid."xx".$userserviceprice;
+											
+											echo '<option value="'.$row->full_name.'">';
+										
 										}
+										echo '</datalist>';
 									}
 							
 									

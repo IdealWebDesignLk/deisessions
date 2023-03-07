@@ -545,7 +545,6 @@ function updateReview()
 		$reviewRating = $_POST["review_rating"];
 		$reviewText = $_POST["review_text"];
 		$reviewId = $_POST["review_id"];
-		$expertId = $_POST["expert_id"];
 		$expertId = $_POST["user_id"];
 
 		if (isset($_POST['delete'])) {
@@ -568,7 +567,6 @@ function updateReview()
 
 				$wpdb->insert('review_details', array(
 					'user' => $expertId,
-					'expert_id' => $expertId,
 					'review' => $reviewText,
 					'starreview' => $reviewRating,
 				));
@@ -697,8 +695,8 @@ function my_admin_review_page_contents()
 					<table id="reviewtable">
 
 						<tr>
-							<th>Expert ID</th>
-							<th>User</th>
+							
+							<th>Expert</th>
 							<th>Rating</th>
 							<th>Review</th>
 							<th>Edit</th>
@@ -720,7 +718,7 @@ function my_admin_review_page_contents()
 
 							<tr>
 								<input type="hidden" class="review_id" value="<?php echo $rowtags->review_id; ?>">
-								<td class="expertid"><?php echo $rowtags->expert_id; ?></td>
+								
 								<td class="userid"><?php echo $rowtags->user; ?></td>
 								<td class="starrating"><?php echo $rowtags->starreview; ?></td>
 								<td class="review"><?php echo $rowtags->review; ?></td>
@@ -738,13 +736,13 @@ function my_admin_review_page_contents()
 						jQuery(document).ready(function() {
 							jQuery("#reviewtable").on('click', '.editreviewbtn', function() {
 								let self = jQuery(this).closest('tr');
-								let expertid = self.find('.expertid').text();
+								
 								let userid = self.find('.userid').text();
 								let startrating = self.find('.starrating').text();
 								let review = self.find('.review').text();
 								let reviewid = self.find('.review_id').val();
 
-								jQuery('#expert_id').val(expertid);
+
 								jQuery('#user_id').val(userid);
 								jQuery('#review_rating').val(startrating);
 								jQuery('#review_text').val(review);
@@ -757,8 +755,6 @@ function my_admin_review_page_contents()
 						<div class="editreview">
 							<div class="row">
 								<div class="col-md-4">
-									<label>Expert ID</label>
-									<input name="expert_id" id="expert_id" type="text" value="">
 								</div>
 								<div class="col-md-4">
 									<label>Expert</label>

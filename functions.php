@@ -1065,7 +1065,7 @@ function wpdocs_custom_login()
 		if (is_wp_error($user)) {
 
 			echo $user->get_error_message();
-			return false;
+			return false; 
 		} else {
 			wp_redirect('/wp-admin/admin.php?page=wpamelia-employees#/employees', 301);
 			exit;

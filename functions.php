@@ -760,7 +760,7 @@ function my_admin_review_page_contents()
 
 									<?php
 									global $wpdb;
-									$expertname = $wpdb->get_results("SELECT full_name FROM wp_821991_amelia_users");
+									$expertname = "SELECT full_name FROM wp_821991_amelia_users";
 
 
 
@@ -768,10 +768,10 @@ function my_admin_review_page_contents()
 									$result = $wpdb->get_results($expertname);
 									
 									// create a select element and options
-									echo "<select name='fruit'>";
+							
 									while ($row = mysqli_fetch_assoc($result)) {
-									  echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
-									  echo '<datalist id="fruit-list">
+									 
+									  echo '<datalist id="expert-list">
 											<option value="'.$row["full_name"].'">
 										</datalist>';
 
@@ -781,7 +781,7 @@ function my_admin_review_page_contents()
 									?>
 
 									<label>Expert</label>
-									<input name="user_id" id="user_id" type="text" value="" list="fruit-list">
+									<input name="user_id" id="user_id" type="text" value="" list="expert-list">
 								</div>
 								<div class="col-md-4">
 									<label>Rating</label>

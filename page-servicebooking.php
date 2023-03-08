@@ -246,8 +246,9 @@ if (get_field('inactive', $worduser)) {
                                     <div class="row">
                                         <div class="rate">
                                             <?php
+                                            $empfullname = $employee[0]->full_name;
                                             $average = 0;
-                                            $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where service_id='$serviceid'");
+                                            $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where user='$empfullname'");
                                             foreach ($reviewresult as $row) {
                                                 $count = count($reviewresult);
                                                 $review = $row->starreview;
@@ -448,8 +449,9 @@ if (get_field('inactive', $worduser)) {
                                 <h5> <?php echo $employee[0]->position; ?></h5>
                                 <div class="rate">
                                     <?php
+                                    $empfullname2 = $employee[0]->full_name;
                                     $average1 = 0;
-                                    $reviewresult1 = $wpdb->get_results("SELECT * FROM `review_details` where service_id='$serviceid'");
+                                    $reviewresult1 = $wpdb->get_results("SELECT * FROM `review_details` where user='$empfullname2'");
                                     foreach ($reviewresult1 as $row) {
                                         $count = count($reviewresult1);
                                         $review1 = $row->starreview;

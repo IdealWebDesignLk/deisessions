@@ -1082,18 +1082,18 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                                         <div class="rate">
                                                             <?php
                                                              $employeefullnamecard = $employeedetails->full_name;
-                                                             echo $employeefullnamecard;
-                                                            $average = 0;
-                                                            $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where user='$employeefullnamecard'");
-                                                            foreach ($reviewresult as $row1) {
-                                                                $count = count($reviewresult);
-                                                                $review = $row1->starreview;
+                                                             
+                                                            $average1 = 0;
+                                                            $reviewresult1 = $wpdb->get_results("SELECT * FROM `review_details` where user='$employeefullnamecard'");
+                                                            foreach ($reviewresult1 as $row1) {
+                                                                $count1 = count($reviewresult1);
+                                                                $review1 = $row1->starreview;
 
-                                                                $rate += $review;
-                                                                $average = $rate / $count;
+                                                                $rate1 += $review1;
+                                                                $average1 = $rate1 / $count1;
                                                             }
-                                                            $rating = round($average);
-                                                            if ($rating == "1") {
+                                                            $rating1 = round($average1);
+                                                            if ($rating1 == "1") {
                                                             ?>
                                                                 <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/09/star-3-1.png' ?>">
                                                                 <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
@@ -1103,7 +1103,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
 
 
                                                             <?php
-                                                            } else if ($rating == "2") {
+                                                            } else if ($rating1 == "2") {
                                                             ?>
                                                                 <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/09/star-3-1.png' ?>">
                                                                 <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/09/star-3-1.png' ?>">
@@ -1111,17 +1111,17 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                                                 <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
                                                                 <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
                                                             <?php
-                                                            } else if ($rating == "3") {
+                                                            } else if ($rating1 == "3") {
                                                             ?>
 
                                                                 <a href="<?php $server_name . '/how-it-works-iwd-sessions-explained/#curators' ?>"><img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2023/01/starseke.png' ?>"></a>
                                                             <?php
-                                                            } else if ($rating == "4") {
+                                                            } else if ($rating1 == "4") {
                                                             ?>
 
                                                                 <a href="<?php $server_name . '/how-it-works-iwd-sessions-explained/#curators' ?>"><img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2023/01/starsyanti.png' ?>"></a>
                                                             <?php
-                                                            } else if ($rating == "5") {
+                                                            } else if ($rating1 == "5") {
                                                             ?>
 
                                                                 <a href="<?php $server_name . '/how-it-works-iwd-sessions-explained/#curators' ?>"><img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2023/01/starsdanielle.png' ?>"></a>

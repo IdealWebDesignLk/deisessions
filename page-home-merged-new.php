@@ -1072,8 +1072,65 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                                         <p class="cardauthor"><?php echo $employeedetails->firstName . " " . $employeedetails->lastName  ?>
                                                             <?php if (get_field('verifed', $worduser)) : ?>
                                                                 <span class="verifiedtext"><img class="verifyimg" src="<?php echo $server_name . '/wp-content/uploads/2023/01/Vector-Stroke.png' ?>"></span>
-                                                            <?php endif; ?>
+                                                            <?php endif; 
+                                                           
+                                                            ?>
                                                         </p>
+
+
+                                                       
+                                                        <div class="rate">
+                                                            <?php
+                                                             $employeefullnamecard = $employeedetails->full_name;
+                                                            $average = 0;
+                                                            $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where user='$employeefullnamecard'");
+                                                            foreach ($reviewresult as $row1) {
+                                                                $count = count($reviewresult);
+                                                                $review = $row1->starreview;
+
+                                                                $rate += $review;
+                                                                $average = $rate / $count;
+                                                            }
+                                                            $rating = round($average);
+                                                            if ($rating == "1") {
+                                                            ?>
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/09/star-3-1.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+
+
+                                                            <?php
+                                                            } else if ($rating == "2") {
+                                                            ?>
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/09/star-3-1.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/09/star-3-1.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+                                                                <img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2022/10/emptystar.png' ?>">
+                                                            <?php
+                                                            } else if ($rating == "3") {
+                                                            ?>
+
+                                                                <a href="<?php $server_name . '/how-it-works-iwd-sessions-explained/#curators' ?>"><img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2023/01/starseke.png' ?>"></a>
+                                                            <?php
+                                                            } else if ($rating == "4") {
+                                                            ?>
+
+                                                                <a href="<?php $server_name . '/how-it-works-iwd-sessions-explained/#curators' ?>"><img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2023/01/starsyanti.png' ?>"></a>
+                                                            <?php
+                                                            } else if ($rating == "5") {
+                                                            ?>
+
+                                                                <a href="<?php $server_name . '/how-it-works-iwd-sessions-explained/#curators' ?>"><img class="star-rating" src="<?php echo $server_name . '/wp-content/uploads/2023/01/starsdanielle.png' ?>"></a>
+
+                                                            <?php
+                                                            }
+                                                            ?>
+
+                                                        </div>
+
                                                         <h4 class="sessionttile"><b><?php echo $row->name; ?></b></h4>
                                                         <h4 style="font-size: 16px;"><b><?php echo do_shortcode('[woo_multi_currency_exchange price="' . $row->price . '" currency="' . $curr . '"]');  ?></b></h4>
                                                         <?php
@@ -1379,7 +1436,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
             videoSrc += `${videoSrc}&autoplay=1`
             document.querySelector('.full-screen-main-video').classList.remove('hidden')
             // setTimeout(() => {
-                document.getElementById('fullscreen-youtube-video').src = videoSrc
+            document.getElementById('fullscreen-youtube-video').src = videoSrc
             // }, 100);
         }
 

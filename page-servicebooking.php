@@ -108,6 +108,9 @@ $empid = $employee[0]->id;
 $externalid = $employee[0]->externalId;
 
 $worduser = 'user_' . $externalid;
+?>
+<main>
+<?php
 if (get_field('inactive', $worduser)) {
 ?>
     <h1 class="disableuser">This user is Inactive</h1>

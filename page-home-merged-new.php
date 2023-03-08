@@ -1082,6 +1082,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                                         <div class="rate">
                                                             <?php
                                                              $employeefullnamecard = $employeedetails->full_name;
+                                                             echo $employeefullnamecard;
                                                             $average = 0;
                                                             $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where user='$employeefullnamecard'");
                                                             foreach ($reviewresult as $row1) {

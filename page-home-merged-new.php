@@ -60,8 +60,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                 if ($paramid != "") {
 
 
-                    $service = $wpdb->get_results("SELECT * FROM $tbprefix" . "amelia_services` where status='visible' and id='$paramid'");
-
+                    $service = $wpdb->get_results("SELECT * FROM $tbprefix" . "amelia_services where status='visible' and id='$paramid'");
 
 
                     $employee =  $wpdb->get_results("SELECT $tbprefix" . "amelia_users.* FROM " . $tbprefix . "amelia_services inner join " . $tbprefix . "amelia_providers_to_services inner join " . $tbprefix . "amelia_users on " . $tbprefix . "amelia_services.id=" . $tbprefix . "amelia_providers_to_services.serviceId and " . $tbprefix . "amelia_providers_to_services.userId=" . $tbprefix . "amelia_users.id where " . $tbprefix . "amelia_services.id='$paramid'");
@@ -176,6 +175,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                     <h3 class="headeremployeename">
 
                                         <?php
+                                        $employeefullname = $employee[0]->full_name;
                                         $wordpressuserid = $employee[0]->externalId;
                                         $worduser = 'user_' . $wordpressuserid;
                                         ?>
@@ -189,7 +189,7 @@ $videosrc =  $server_name . '/wp-content/uploads/2022/09/pexels-artem-podrez-575
                                     <div class="rate">
                                         <?php
                                         $average = 0;
-                                        $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where service_id='$serviceid'");
+                                        $reviewresult = $wpdb->get_results("SELECT * FROM `review_details` where user='$employeefullname'");
                                         foreach ($reviewresult as $row) {
                                             $count = count($reviewresult);
                                             $review = $row->starreview;
